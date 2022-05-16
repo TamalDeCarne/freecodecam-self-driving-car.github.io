@@ -11,7 +11,7 @@ const networkCtx = networkCanvas.getContext("2d");
 //Create road
 const road = new Road(carCanvas.width/2, carCanvas.width*0.9);
 //Car dimensions
-const N = 1000;
+const N = 500;
 const cars = generateCars(N);
 
 let bestCar = cars[0];
