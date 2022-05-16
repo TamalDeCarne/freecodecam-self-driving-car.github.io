@@ -42,12 +42,10 @@ animate();
 function save(){
     localStorage.setItem("bestBrain",
         JSON.stringify(bestCar.brain));
-    console.table(localStorage);
 }
 
 function discard(){
     localStorage.removeItem("bestBrain");
-    console.table(localStorage);
 }
 
 function generateCars(N){
