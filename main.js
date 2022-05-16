@@ -39,15 +39,18 @@ const traffic = [
 //Start to do the animation of the car movement
 animate();
 
+//Saves best brain
 function save(){
     localStorage.setItem("bestBrain",
         JSON.stringify(bestCar.brain));
 }
 
+//Deletes saved best brain
 function discard(){
     localStorage.removeItem("bestBrain");
 }
 
+//Generates ghost cars
 function generateCars(N){
     const cars = [];
 
@@ -79,18 +82,23 @@ function animate(time){
     carCtx.translate(0, -bestCar.y + carCanvas.height*0.7);
     //Creating Road and Car
     road.draw(carCtx);
+    //Draws traffic cars
     for(let i=0; i<traffic.length; i++){
         traffic[i].draw(carCtx, "blue");
     }
+    //Set the ghost alpha
     carCtx.globalAlpa = 0.2;
+    //Draws ghost cars
     for (let i=0; i<cars.length; i++){
         cars[i].draw(carCtx, "black");
     }
+    //Sets the main car alpha
     carCtx.globalAlpa = 1;
+    //Draws default car
     bestCar.draw(carCtx, "black", true);
     //Start the animation
     carCtx.restore();
-
+    //Gives animation to neuronal network
     networkCtx.lineDashOffset = -time/50;
     Visualizer.drawNetwork(networkCtx, bestCar.brain);
     requestAnimationFrame(animate);

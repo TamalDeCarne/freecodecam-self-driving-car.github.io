@@ -22,6 +22,7 @@ class Sensor{
         }
     }
 
+    //Getting the information provided by the car's sensor
     #getReading(ray, roadBorders, traffic){
         let touches = [];
 
@@ -52,7 +53,7 @@ class Sensor{
                 }
             }
         }
-
+        //Sets the collision point
         if(touches.length==0){
             return null
         }

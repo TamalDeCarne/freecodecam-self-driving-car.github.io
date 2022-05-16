@@ -8,6 +8,7 @@ class NeuralNetwork{
         }
     }
 
+    //Feeds the decision making after processed by the levels
     static feedForward(givenInputs, network){
         let outputs = Level.feedForward(
             givenInputs, network.levels[0]
@@ -58,6 +59,7 @@ class Level{
         Level.#randomize(this);
     }
 
+    //Gives the RNG factor for split decision making
     static #randomize(level){
         for(let i=0; i<level.inputs.length; i++){
             for(let j=0; j<level.outputs.length; j++){
@@ -70,6 +72,7 @@ class Level{
         }
     }
 
+    //Feeds the Levels with the inputs and outputs decided by the AI
     static feedForward(givenInputs, level){
         for(let i=0; i<level.inputs.length; i++){
             level.inputs[i] = givenInputs[i];

@@ -6,9 +6,9 @@ class Visualizer{
         const width = ctx.canvas.width - margin * 2;
         const height = ctx.canvas.height - margin * 2;
 
-        //Visualizer.drawLevel(ctx, network.levels[0], left, top, width, height);
         const levelHeight = height / network.levels.length;
 
+        //Draws the neuronal network by levels from top to bottom
         for(let i=network.levels.length-1; i>=0; i--){
             const levelTop = top + 
                 lerp(
