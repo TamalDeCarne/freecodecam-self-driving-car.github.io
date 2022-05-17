@@ -31,7 +31,7 @@ class Car{
 
         //Refer image
         this.img = new Image();
-        this.img.src = "img/car.png";
+        this.img.src = "img/Car.PNG";
 
         //Add color
         this.mask = document.createElement("canvas");
