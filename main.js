@@ -27,13 +27,13 @@ if(localStorage.getItem("bestBrain")){
 }
 //Adding Traffic
 const traffic = [
-    new Car(road.getLaneCenter(1), -100, 30, 50, "DUMMY", 3),
-    new Car(road.getLaneCenter(0), -300, 30, 50, "DUMMY", 3),
-    new Car(road.getLaneCenter(2), -300, 30, 50, "DUMMY", 3),
-    new Car(road.getLaneCenter(0), -500, 30, 50, "DUMMY", 3),
-    new Car(road.getLaneCenter(1), -500, 30, 50, "DUMMY", 3),
-    new Car(road.getLaneCenter(1), -700, 30, 50, "DUMMY", 3),
-    new Car(road.getLaneCenter(2), -700, 30, 50, "DUMMY", 3)
+    new Car(road.getLaneCenter(1), -100, 30, 50, "DUMMY", 3, getRandomColor()),
+    new Car(road.getLaneCenter(0), -300, 30, 50, "DUMMY", 3, getRandomColor()),
+    new Car(road.getLaneCenter(2), -300, 30, 50, "DUMMY", 3, getRandomColor()),
+    new Car(road.getLaneCenter(0), -500, 30, 50, "DUMMY", 3, getRandomColor()),
+    new Car(road.getLaneCenter(1), -500, 30, 50, "DUMMY", 3, getRandomColor()),
+    new Car(road.getLaneCenter(1), -700, 30, 50, "DUMMY", 3, getRandomColor()),
+    new Car(road.getLaneCenter(2), -700, 30, 50, "DUMMY", 3, getRandomColor())
 ];
 
 //Start to do the animation of the car movement
@@ -87,15 +87,15 @@ function animate(time){
         traffic[i].draw(carCtx, "blue");
     }
     //Set the ghost alpha
-    carCtx.globalAlpa = 0.2;
+    carCtx.globalAlpha = 0.2;
     //Draws ghost cars
     for (let i=0; i<cars.length; i++){
-        cars[i].draw(carCtx, "black");
+        cars[i].draw(carCtx);
     }
     //Sets the main car alpha
-    carCtx.globalAlpa = 1;
+    carCtx.globalAlpha = 1;
     //Draws default car
-    bestCar.draw(carCtx, "black", true);
+    bestCar.draw(carCtx, true);
     //Start the animation
     carCtx.restore();
     //Gives animation to neuronal network
